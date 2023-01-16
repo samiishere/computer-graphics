@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<math.h>
+#include<dos.h>
+int main()
+{
+   int gd=DETECT,gm;
+   float xc,yc,a,b,x,y,p1,p2,dx,dy;
+   initgraph(&gd,&gm,"\\c:turboC3\\bgi");
+   printf("enter the radius and centers:");
+   scanf("%f%f%f%f",&a,&b,&xc,&yc);
+   x=0;
+   y=b;
+   putpixel(xc+x,yc+y,5);
+   p1=(b*b)-((a*a)*b)+(0.25)*(a*a);
+   dx=2*b*b*x;
+   dy=2*a*a*y;
+   while(dx<dy)
+   {  
+      if(p1<0)
+      {
+	 x=x+1;
+	 y=y;
+	 dx=dx+(2*b*b);
+	 p1=p1+dx+(b*b);
+      }
+      else
+      {
+    	x=x+1;
+	    y=y-1;
+	    dx=dx+(2*b*b);
+	    dy=dy-(2*a*a);
+	    p1=p1+dx-dy+(b*b);
+      }
+      putpixel(x+xc,y+yc,6);
+      putpixel(xc-x,yc+y,6);
+      putpixel(xc+x,yc-y,6);
+      putpixel(xc-x,yc-y,6);
+    } 
+   p2=((b*b)*((x+0.5)*(x+0.5)))+((a*a)*((y-1)*(y-1)))-((a*a)*(b*b));
+   while(y>=0)
+   {  
+      if(p2>0)
+      {
+	  y=y-1;
+	  dy=dy-(2*a*a);
+	  p2=p2-dy+(a*a);
+      }
+      else
+      {
+	   x=x+1;
+	   y=y-1;
+	   dx=dx+(2*b*b);
+	   dy=dy-(2*a*a);
+	   p2=p2+dx-dy+(a*a);
+      }
+      putpixel(xc+x,yc+y,6);
+      putpixel(xc-x,yc+y,6);
+      putpixel(xc+x,yc-y,6);
+      putpixel(xc-x,yc-y,6);
+   }
+   getch();
+   closegraph();
+   return 0;
+}
