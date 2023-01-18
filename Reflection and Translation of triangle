@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<conio.h>
+#include<graphics.h>
+#include<dos.h>
+int main()
+{
+    int gd=DETECT,gm;
+    int x=100,y=100,x1=200,y1=200,x2=0,y2=200,x0,y0,t1,t2;
+    initgraph(&gd,&gm,"c:\\turboC3\\bgi");
+    printf("enter t1 and t2:");
+    scanf("%d%d",&t1,&t2);
+    x0=getmaxx();
+    y0=getmaxy();
+    line(x0/2,0,x0/2,y0);
+    line(0,y0/2,x0,y0/2);
+    line(x,y,x1,y1);
+    line(x1,y1,x2,y2);
+    line(x2,y2,x,y);
+    line(x+t1,y+t2,x1+t1,y1+t2);
+    line(x1+t1,y1+t2,x2+t1,y2+t2);
+    line(x2+t1,y2+t2,x+t1,y+t2);
+    line(x0-x,y,x0-x1,y1);
+    line(x0-x1,y1,x0-x2,y2);
+    line(x0-x2,y2,x0-x,y);
+    line(x0-x,y0-y,x0-x1,y0-y1);
+    line(x0-x1,y0-y1,x0-x2,y0-y2);
+    line(x0-x2,y0-y2,x0-x,y0-y);
+    line(x,y0-y,x1,y0-y1);
+    line(x1,y0-y1,x2,y0-y2);
+    line(x2,y0-y2,x,y0-y);
+    getch();
+    closegraph();
+    return 0;
+}
