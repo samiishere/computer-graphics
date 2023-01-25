@@ -8,7 +8,7 @@ int main()
     initgraph(&gd,&gm,"c:\\turboC3\\bgi");
     x=getmaxx();
     y=getmaxy();
-    line(50,y/2,50,50);
+    line(50,y/1.5,50,50);
     line(20,y/2,300,y/2);
     bar3d(100,y/2,120,150,12,12);
     bar3d(140,y/2,160,110,12,12);
